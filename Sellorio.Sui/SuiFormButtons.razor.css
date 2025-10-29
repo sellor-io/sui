@@ -1,0 +1,13 @@
+﻿.sui-form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+}
+
+.sui-form-buttons ::deep .mud-button {
+    display: block;
+}
+
+.sui-form-buttons ::deep .mud-button + .mud-button {
+    margin-left: 12px;
+}

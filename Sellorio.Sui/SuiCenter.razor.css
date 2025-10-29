@@ -1,0 +1,12 @@
+﻿.sui-center-h, .sui-center-v {
+    display: flex;
+    height: 100%;
+}
+
+.sui-center-h {
+    justify-content: center;
+}
+
+.sui-center-v {
+    align-items: center;
+}

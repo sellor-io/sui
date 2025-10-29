@@ -1,0 +1,20 @@
+﻿.sui-tiles .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: calc(var(--tiles-spacing) * -1);
+}
+
+.sui-tiles .content ::deep > * {
+    margin: var(--tiles-spacing);
+}
+
+@media (max-width: 599px) {
+    .sui-tiles {
+        justify-content: center;
+    }
+}
+
+.sui-panel + .sui-tiles {
+    margin-top: 16px;
+}

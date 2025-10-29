@@ -1,0 +1,21 @@
+﻿<div class="sui-dialog-layout" style="@($"--width: {PreferredWidth}px")">
+	<MudDialog>
+		<TitleContent>
+			<SuiHeading3>@Title</SuiHeading3>
+		</TitleContent>
+		<DialogContent>
+			@ChildContent
+		</DialogContent>
+	</MudDialog>
+</div>
+
+@code {
+	[Parameter, EditorRequired]
+	public required string Title { get; set; }
+
+	[Parameter]
+	public int PreferredWidth { get; set; } = 400;
+
+	[Parameter]
+	public RenderFragment? ChildContent { get; set; }
+}

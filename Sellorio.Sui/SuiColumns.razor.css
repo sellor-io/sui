@@ -1,0 +1,9 @@
+﻿.sui-columns .content {
+    display: flex;
+    flex-wrap: wrap;
+    margin: calc(var(--column-spacing) * -1);
+}
+
+.sui-columns .content ::deep > * {
+    margin: var(--column-spacing);
+}

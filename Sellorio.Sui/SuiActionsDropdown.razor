@@ -1,0 +1,21 @@
+﻿@using Sellorio.Sui.Layout
+@inherits Base.SuiDisableComponent
+
+<MudMenu Dense Disabled="DisableContent || Loading">
+	<ActivatorContent>
+		<SuiButton Icon="Icon.Menu" Primary Loading="Loading" />
+	</ActivatorContent>
+	<ChildContent>
+		<SuiDisableStateProvider>
+			@ChildContent
+		</SuiDisableStateProvider>
+	</ChildContent>
+</MudMenu>
+
+@code {
+	[Parameter]
+	public bool Loading { get; set; }
+
+	[Parameter]
+	public RenderFragment? ChildContent { get; set; }
+}

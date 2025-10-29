@@ -1,0 +1,21 @@
+﻿@using Microsoft.AspNetCore.Components.Forms
+
+<SuiFormInputWrapper Label="@Label">
+    <MudGrid Spacing="0" Justify="Justify.FlexEnd">
+        <SuiFileInput Accept="Accept" Value="Value" ValueChanged="ValueChanged" />
+    </MudGrid>
+</SuiFormInputWrapper>
+
+@code {
+    [Parameter]
+    public string? Label { get; set; }
+
+    [Parameter]
+    public IList<string>? Accept { get; set; }
+
+    [Parameter]
+    public IBrowserFile? Value { get; set; }
+
+    [Parameter]
+    public EventCallback<IBrowserFile> ValueChanged { get; set; }
+}

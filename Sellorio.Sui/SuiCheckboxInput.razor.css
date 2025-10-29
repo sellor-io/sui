@@ -1,0 +1,11 @@
+﻿.sui-checkbox-input {
+    position: relative;
+    top: 4px;
+    display: block;
+    margin-left: auto;
+    width: 24px;
+}
+
+.sui-checkbox-input ::deep .mud-icon-button {
+    padding: 0;
+}

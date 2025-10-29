@@ -1,0 +1,7 @@
+﻿.sui-result-messages {
+    margin: 16px 0;
+}
+
+.sui-result-messages:first-child {
+    margin-top: 0;
+}

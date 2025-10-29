@@ -1,0 +1,38 @@
+﻿@using Sellorio.Sui.Layout
+
+<SuiDisableStateProvider @ref="disableStateProvider">
+	<div class="sui-box-loader">
+		<div class="loader">
+			@if (Loading)
+			{
+				<SuiLoader />
+			}
+		</div>
+		<div class="@("content" + (Loading ? " loading" : ""))">
+			@ChildContent
+		</div>
+	</div>
+</SuiDisableStateProvider>
+
+@code {
+	SuiDisableStateProvider? disableStateProvider;
+
+	[Parameter]
+	public bool Loading { get; set; }
+
+	[Parameter]
+	public RenderFragment? ChildContent { get; set; }
+
+	protected override void OnParametersSet()
+	{
+		disableStateProvider?.UpdateState(Loading);
+	}
+
+	protected override void OnAfterRender(bool firstRender)
+	{
+		if (firstRender)
+		{
+			disableStateProvider!.UpdateState(Loading);
+		}
+	}
+}

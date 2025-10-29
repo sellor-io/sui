@@ -1,0 +1,8 @@
+﻿.sui-checkbox {
+    margin-right: 20px;
+}
+
+.sui-checkbox ::deep .mud-input-control,
+.sui-checkbox ::deep .mud-input-control-input-container {
+    display: inline;
+}

@@ -1,0 +1,22 @@
+﻿<div class="sui-panel">
+	<MudCard Square="Constants.Square">
+		@if (Title != null)
+		{
+			<MudCardHeader>
+				<SuiHeading3>@Title</SuiHeading3>
+			</MudCardHeader>
+		}
+	
+		<MudCardContent>
+			@ChildContent
+		</MudCardContent>
+	</MudCard>
+</div>
+
+@code {
+	[Parameter]
+	public string? Title { get; set; }
+
+	[Parameter]
+	public RenderFragment? ChildContent { get; set; }
+}

@@ -1,0 +1,71 @@
+﻿@inherits Base.SuiDisableComponent
+
+<div class="sui-vertical-tile">
+	<ClickableElement Href="@Href" OnClick="OnClick" Disabled="DisableContent">
+		<MudPaper>
+			@if (Title != null)
+			{
+				<div class="title">@Title</div>
+			}
+
+			@if (ImageContent != null)
+			{
+				<div class="image">
+					@ImageContent
+				</div>
+			}
+			else if (ImagePlaceholderFallback)
+			{
+				<SuiImagePlaceholder />
+			}
+
+			@if (ChildContent != null)
+			{
+				<div class="content">@ChildContent</div>
+			}
+
+			@if (ActionsContent != null)
+			{
+				<div class="actions">
+					@ActionsContent
+				</div>
+			}
+
+			@if (StatusStripContent != null)
+			{
+				<SuiStatusStrip>
+					@StatusStripContent
+				</SuiStatusStrip>
+			}
+		</MudPaper>
+	</ClickableElement>
+</div>
+
+@code {
+	[Parameter]
+	public string? Title { get; set; }
+
+	[Parameter]
+	public string? ImageSrc { get; set; }
+
+	[Parameter]
+	public string? Href { get; set; }
+
+	[Parameter]
+	public bool ImagePlaceholderFallback { get; set; }
+
+	[Parameter]
+	public RenderFragment? ImageContent { get; set; }
+
+	[Parameter]
+	public RenderFragment? ActionsContent { get; set; }
+
+	[Parameter]
+	public RenderFragment? ChildContent { get; set; }
+
+	[Parameter]
+	public RenderFragment? StatusStripContent { get; set; }
+
+	[Parameter]
+	public EventCallback OnClick { get; set; }
+}

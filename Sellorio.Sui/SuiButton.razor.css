@@ -1,0 +1,15 @@
+﻿.sui-button.no-label ::deep .mud-button {
+    padding: 6px;
+}
+
+.sui-button + .sui-button {
+    margin-left: 16px;
+}
+
+.sui-button ::deep .mud-button {
+    min-width: unset;
+}
+
+.sui-button ::deep .mud-icon-root {
+    display: block;
+}

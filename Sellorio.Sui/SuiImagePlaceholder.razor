@@ -1,0 +1,36 @@
+﻿@using System.Text
+
+<div class="sui-image-placeholder" style="@GetStyle()"></div>
+
+@code {
+	[Parameter]
+	public int? Width { get; set; }
+
+	[Parameter]
+	public int? Height { get; set; }
+
+	[Parameter]
+	public (byte W, byte H)? AspectRatio { get; set; }
+
+	string GetStyle()
+	{
+		var result = new StringBuilder(200);
+
+		if (Width != null)
+		{
+			result.Append("width:").Append(Width).Append("px;");
+		}
+
+		if (Height != null)
+		{
+			result.Append("height:").Append(Height).Append("px;");
+		}
+
+		if (AspectRatio != null)
+		{
+			result.Append("aspect-ratio:").Append(AspectRatio.Value.W).Append('/').Append(AspectRatio.Value.H).Append(';');
+		}
+
+		return result.ToString();
+	}
+}

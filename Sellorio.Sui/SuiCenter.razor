@@ -1,0 +1,14 @@
+﻿<div class="@(Horizontal ? "sui-center-h" : "") @(Vertical ? "sui-center-v" : "")">
+	@ChildContent
+</div>
+
+@code {
+	[Parameter]
+	public bool Horizontal { get; set; }
+
+	[Parameter]
+	public bool Vertical { get; set; }
+
+	[Parameter]
+	public RenderFragment? ChildContent { get; set; }
+}
