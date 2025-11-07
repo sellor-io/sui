@@ -5,27 +5,35 @@
 
 <PageTitle>@Title</PageTitle>
 
+<HeadContent>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+	<link href="@Assets["_content/MudBlazor/MudBlazor.min.css"]" rel="stylesheet" />
+</HeadContent>
+
 <div class="sui-page-layout">
 	<MudLayout>
-		<MudAppBar>
-			@if (NavContent != null)
-			{
-				<MudIconButton Class="mr-4" Icon="@Icons.Material.Filled.Menu" Color="Color.Secondary" Variant="Variant.Filled" Edge="Edge.Start" DropShadow="false" OnClick="() => isMenuOpen = !isMenuOpen" Disabled="DisableContent" />
-			}
+		@if (!NoTitleBar)
+		{
+			<MudAppBar>
+				@if (NavContent != null)
+				{
+					<MudIconButton Class="mr-4" Icon="@Icons.Material.Filled.Menu" Color="Color.Secondary" Variant="Variant.Filled" Edge="Edge.Start" DropShadow="false" OnClick="() => isMenuOpen = !isMenuOpen" Disabled="DisableContent" />
+				}
 
-			<MudGrid Spacing="0" Style="align-items:center">
-				<MudItem Style="flex-grow:1">
-					<a href="/">
-						<SuiHeading1>@Title</SuiHeading1>
-					</a>
-				</MudItem>
-				<MudItem>
-					<AuthorizeView>
-						<MudIconButton Icon="@Icons.Material.Filled.Logout" Color="Color.Secondary" Variant="Variant.Filled" Edge="Edge.End" DropShadow="false" OnClick="OnLogoutRequested" Disabled="DisableContent" />
-					</AuthorizeView>
-				</MudItem>
-			</MudGrid>
-		</MudAppBar>
+				<MudGrid Spacing="0" Style="align-items:center">
+					<MudItem Style="flex-grow:1">
+						<a href="/">
+							<SuiHeading1>@Title</SuiHeading1>
+						</a>
+					</MudItem>
+					<MudItem>
+						<AuthorizeView>
+							<MudIconButton Icon="@Icons.Material.Filled.Logout" Color="Color.Secondary" Variant="Variant.Filled" Edge="Edge.End" DropShadow="false" OnClick="OnLogoutRequested" Disabled="DisableContent" />
+						</AuthorizeView>
+					</MudItem>
+				</MudGrid>
+			</MudAppBar>
+		}
 
 		@if (NavContent != null)
 		{
@@ -51,11 +59,16 @@
 	</MudLayout>
 </div>
 
+<script src="@Assets["_content/MudBlazor/MudBlazor.min.js"]"></script>
+
 @code {
 	bool isMenuOpen = true;
 
-	[Parameter, EditorRequired]
-	public string Title { get; set; }
+	[Parameter]
+	public string? Title { get; set; }
+
+	[Parameter]
+	public bool NoTitleBar { get; set; }
 
 	[Parameter]
 	public bool NoPadding { get; set; }
