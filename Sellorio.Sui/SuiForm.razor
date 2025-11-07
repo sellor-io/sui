@@ -2,10 +2,7 @@
 
 <CascadingValue Value="this" IsFixed>
 	<SuiDisableStateProvider @ref="disableStateProvider">
-		<MudForm @ref="form" Disabled="Disabled" SuppressImplicitSubmission="false" Style="@($"max-width:{Constants.MaxFormWidth}")">
-			<button type="submit" style="display:none" @onclick="OnSubmitAsync"></button>
-			@ChildContent
-		</MudForm>
+		<MudForm @ref="form" Disabled="Disabled" SuppressImplicitSubmission="false" Style="@($"max-width:{Constants.MaxFormWidth}")" @onsubmit="OnSubmitAsync" ChildContent="ChildContent" />
 	</SuiDisableStateProvider>
 </CascadingValue>
 
